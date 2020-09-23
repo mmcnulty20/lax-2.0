@@ -1,5 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom";
+import Root from "./components/root";
+import configureStore from "./store/store";
 
 document.addEventListener("DOMContentLoaded", () => {
     const root = document.getElementById("root")
@@ -15,6 +17,10 @@ document.addEventListener("DOMContentLoaded", () => {
             session: { id: window.currentUser }
         }
         delete window.currentUser
-        
+        store = configureStore(preloadedState);
+    } else {
+        store = configureStore()
     }
+
+    ReactDOM.render(<Root store={ store } />, root);
 })
