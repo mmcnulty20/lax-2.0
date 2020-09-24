@@ -43,7 +43,7 @@ class Api::UsersController < ApplicationController
     end
 
     def email_in_use
-        render json: { inUse: User.exists?(user_params[:email]) } 
+        render json: { inUse: User.exists?(email: user_params[:email]) } 
     end
 
     private

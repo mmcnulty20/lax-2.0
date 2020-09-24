@@ -20,3 +20,11 @@ export const signUp = user => (
         data: { user }
     })
 )
+
+export const checkEmail = email => (
+    $.ajax({
+        method: "GET",
+        url: "/api/users/email_in_use",
+        data: { user: { email } }
+    })
+)

@@ -1,6 +1,9 @@
+import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import * as sessionAPIUtil from "./session_api_util";
 
 export const validEmail = str => {
+    console.log(str)
     const valid = str.search(/^[a-zA-Z0-9][\w-.]*[@][a-zA-Z0-9][\w-]*[.][\w-]*[a-zA-Z0-9]$/)
     return valid !== -1
 }
@@ -10,17 +13,31 @@ export const validName = name => {
     return vaild !== -1;
 }
 
+export const checkEmail = email => (
+    sessionAPIUtil.checkEmail(email)
+        .then( ({ inUse }) => {
+            if ( !inUse && validEmail(email) ) {
+                return null
+            } else {
+                return handleFrontendErrors(1, email, inUse)
+            }
+        } )
+)
+
 export const handleBackendErrors = ( errors = [] ) => {
     const formatted = [];
     
     const nameErrs = errors.find( err => err.includes("name") );
-    formatted.push(nameErrs || null);
+    formatted.push( nameErrs ? nameErrs.slice(9) : null );
+    // Slicing removes "Username " from beginning of error message
 
     const emailErrs = errors.find( err => err.includes("email") );
-    formatted.push(emailErrs || null);
+    formatted.push(emailErrs ? emailErrs.slice(6) : null);
+    // Slicing removes "Email " from beginning of error message
 
     const pwErrs = errors.find( err => err.includes("password") );
-    formatted.push(pwErrs || null);
+    formatted.push(pwErrs ? pwErrs.slice(9) : null);
+    // Slicing removes "Password " from beginning of error message
 
     return formatted.map( (err, i) => formatError(err,i) )
 }
@@ -36,16 +53,15 @@ export const handleFrontendErrors = (i, value, inUse = false) => {
             }
             break;
         case 1: //if the current field is the email
-            if ( email.length === 0 ) {
+            if ( value.length === 0 ) {
                 errMsg = "This is required — you’ll need to enter an email.";
             } else if ( inUse ) {
                 errMsg = "That email is already in use.";
-            } else if ( !validEmail(email) ) {
+            } else if ( !validEmail(value) ) {
                 errMsg = "It looks like that isn’t a valid email address.";
             }
             break;
-        case 2: //if the current field is the password
-            value = value.length;
+        case 2: //if the current field is the password ( value here is already the length )
             if ( value === 0 ) {
                 errMsg = "This is required — you’ll need to enter a password.";
             } else if ( value > 0 && value < 6 ) {
@@ -69,7 +85,7 @@ export const formatError = ( msg, i ) => {
             </div>
         )
     } else {
-        console.log(msg)
+        if ( msg !== null) console.log(msg)
         return msg
     }
 }

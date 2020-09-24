@@ -4,6 +4,7 @@ import Root from "./components/root";
 import configureStore from "./store/store";
 import library from "./icons/library";
 import { loginUser, logoutCurrentUser } from "./actions/session_actions";
+import { checkEmail } from "./utils/session_api_util";
 
 document.addEventListener("DOMContentLoaded", () => {
     const root = document.getElementById("root")
@@ -28,6 +29,8 @@ document.addEventListener("DOMContentLoaded", () => {
     //testing
     window.login = user => store.dispatch(loginUser(user))
     window.logout = () => store.dispatch(logoutCurrentUser())
+
+    window.checkEmail = checkEmail
     // end testing
     
     ReactDOM.render(<Root store={ store } />, root);
