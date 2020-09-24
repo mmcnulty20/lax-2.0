@@ -52,7 +52,7 @@ export const loginUser = user => {
         sessionAPIUtil.login(user)
             .then(
                 res => dispatch(receiveCurrentUser(res)),
-                errors => dispatch(receiveSessionErrors(errors))
+                ({ responseJSON: errors }) => dispatch(receiveSessionErrors(errors))
             )
     )
 }
@@ -62,7 +62,17 @@ export const logoutUser = () => {
         sessionAPIUtil.logout()
             .then(
                 () => dispatch(logoutCurrentUser()),
-                errors => dispatch(receiveSessionErrors(errors))
+                ({ responseJSON: errors }) => dispatch(receiveSessionErrors(errors))
+            )
+    )
+}
+
+export const loginDemo = () => {
+    return dispatch => (
+        sessionAPIUtil.login({ email: "demouser@demo.com", password: "password" })
+            .then(
+                res => dispatch(receiveCurrentUser(res)),
+                ({ responseJSON: errors }) => dispatch(receiveSessionErrors(errors))
             )
     )
 }
