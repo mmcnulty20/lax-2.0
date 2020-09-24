@@ -32,7 +32,7 @@ class User < ApplicationRecord
     validates :password_digest, presence: true
     
     def self.find_by_credentials(credentials)
-        user = self.find_by(username: credentials[:email])
+        user = self.find_by(email: credentials[:email])
         return unless user
         user if user.is_password?(credentials[:password])
     end
