@@ -4,6 +4,7 @@ import { useSelector } from "react-redux";
 import { Link, Route, Switch } from "react-router-dom";
 
 import { AuthRoute } from "../../utils/route_util"
+import LogoButtonFigure from "../misc/logo_button_fig";
 import LoginNav from "./login_nav";
 import SplashAuthNav from "./splash_auth";
 import SplashProtectedNav from "./splash_protected";
@@ -12,17 +13,7 @@ export default ({ location }) => {
     const loggedIn = useSelector(state => Boolean(state.session.currentUserId) )
     return (
         <div className={location === "/welcome" ? "splash" : "login"}>
-            <figure id="logo-button">
-                <Link to="/welcome">
-                    <FontAwesomeIcon
-                        id="logo-img"
-                        icon="umbrella-beach"
-                        flip="horizontal" />
-                    <span>
-                        lax
-                    </span>
-                </Link>
-            </figure>
+            <LogoButtonFigure />
             <nav className="header-nav">
                 <ul className="nav-list">
                     <li>
