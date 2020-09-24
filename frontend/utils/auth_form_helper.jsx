@@ -3,7 +3,6 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import * as sessionAPIUtil from "./session_api_util";
 
 export const validEmail = str => {
-    console.log(str)
     const valid = str.search(/^[a-zA-Z0-9][\w-.]*[@][a-zA-Z0-9][\w-]*[.][\w-]*[a-zA-Z0-9]$/)
     return valid !== -1
 }
@@ -85,7 +84,6 @@ export const formatError = ( msg, i ) => {
             </div>
         )
     } else {
-        if ( msg !== null) console.log(msg)
         return msg
     }
 }
