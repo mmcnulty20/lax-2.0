@@ -8,8 +8,8 @@ export const validEmail = str => {
 }
 
 export const validName = name => {
-    const vaild = name.search(/^[\w-.]+[\w-.\s]*[\w-.]*$/);
-    return vaild !== -1;
+    const valid = name.search(/^[\w-.]+[\w-.\s]*[\w-.]*$/);
+    return valid !== -1;
 }
 
 export const checkEmail = email => (
@@ -45,7 +45,7 @@ export const handleFrontendErrors = (i, value, inUse = false) => {
     let errMsg
     switch (i) {
         case 0: // If the current field is the username
-            if ( value.length > 0 && validName(value) ) {
+            if ( value.length > 0 && !validName(value) ) {
                 errMsg = "Mostly, names can’t contain punctuation. (Apostrophes, spaces, and periods are fine.)";
             } else if ( value.length === 0 ) {
                 errMsg = "This is required — you’ll need to enter a name.";

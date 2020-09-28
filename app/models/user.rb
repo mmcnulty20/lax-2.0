@@ -17,9 +17,9 @@ class User < ApplicationRecord
     attr_reader :password
 
     # Validations
-    validates :username, presence: { message: "This is required — you’ll need to enter a name." }
+    validates :username, presence: { message: "This is required — you’ll need to enter a name." }, username_character: true
     validates :email, presence: { message: "This is required — you’ll need to enter an email." }
-    validates :email, uniqueness: { message: "That email is already in use." }
+    validates :email, uniqueness: { message: "That email is already in use." }, email: true
     validates :password, presence: { message: "This is required — you’ll need to enter a password." }, on: :create
     validates :password, length: {
         minimum: 6,

@@ -14,12 +14,12 @@ const SignupForm = ({ errors }) => {
 
     const [user, setUser] = useState({ username: "", email: "", password: "" });
     const [checks, setChecks] = useState(defaultChecks);
-    let submitted = false
+    const [submitted, setSubmitted] = useState(false)
 
     const handleSubmit = e => {
         e.preventDefault();
         dispatch(signUpUser(user));
-        submitted = true; // will likely have issue with ASYNC timing!!
+        setSubmitted(true)
         setChecks(defaultChecks)
     }
 
@@ -41,7 +41,7 @@ const SignupForm = ({ errors }) => {
         e => {
             e.target.className = "";
             const val = e.target.value;
-            if ( errors.find(err => err !== null ) ) {
+            if ( submitted ) {
                 switch ( field ) {
                     case 0:
                         if ( validName(val) ) {
