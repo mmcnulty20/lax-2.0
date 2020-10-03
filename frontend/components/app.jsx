@@ -8,7 +8,7 @@ import SignupStructure from "./session/signup_page_structure";
 import SplashMain from "./splash/splash_main";
 import ChannelShow from "./channel/channel_show";
 
-export default (props) => {
+export default ({ id }) => {
     return (
         <>
             <header>
