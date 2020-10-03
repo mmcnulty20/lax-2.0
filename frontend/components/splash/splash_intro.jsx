@@ -1,11 +1,18 @@
 import React from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { Link, useHistory } from "react-router-dom";
+import { loginDemo } from "../../actions/session_actions";
 
-const SplashIntro = props => {
+const SplashIntro = () => {
     const history = useHistory();
+    const dispatch = useDispatch();
+    const errs = useSelector(state => state.errors.session)
 
     return (
         <div className="intro">
+            <ul>
+                {errs}
+            </ul>
             <section>
                 <p>CHILL AT HOME</p>
                 <h1>Lax brings you together, wherever you are</h1>
@@ -16,7 +23,10 @@ const SplashIntro = props => {
                     </button>
                 </Link>
                 <Link to="#"> 
-                    <button onClick={ console.log("demo") }
+                    <button onClick={ () => {
+                            dispatch(loginDemo());
+                            history.push("/")
+                        }}
                         className="btn-white">
                         <span>SEE THE DEMO</span>
                     </button>

@@ -19,7 +19,7 @@ document.addEventListener("DOMContentLoaded", () => {
                     [cUId]: window.currentUser
                 }
             },
-            session: { id: window.currentUser }
+            session: { id: cUId }
         }
         delete window.currentUser
         store = configureStore(preloadedState);
@@ -28,10 +28,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     //testing
-    window.login = user => store.dispatch(loginUser(user))
-    window.logout = () => store.dispatch(logoutCurrentUser())
-
-    window.checkEmail = checkEmail
+    
     // end testing
     
     ReactDOM.render(<Root store={ store } id={ cUId }/>, root);

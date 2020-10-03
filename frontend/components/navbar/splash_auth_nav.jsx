@@ -10,7 +10,7 @@ import SplashAuthNav from "./splash_auth";
 import SplashProtectedNav from "./splash_protected";
 
 export default ({ location }) => {
-    const loggedIn = useSelector(state => Boolean(state.session.currentUserId) )
+    const loggedIn = useSelector(state => Boolean(state.session.id) )
     return (
         <div className={location === "/welcome" ? "splash" : "login"}>
             <LogoButtonFigure />

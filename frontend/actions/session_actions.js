@@ -69,7 +69,7 @@ export const logoutUser = () => {
 
 export const loginDemo = () => {
     return dispatch => (
-        sessionAPIUtil.login({ email: "demouser@demo.com", password: "password" })
+        sessionAPIUtil.login({ email: "demouser" })
             .then(
                 res => dispatch(receiveCurrentUser(res)),
                 ({ responseJSON: errors }) => dispatch(receiveSessionErrors(errors))
