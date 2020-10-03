@@ -9,13 +9,14 @@ import { checkEmail } from "./utils/session_api_util";
 document.addEventListener("DOMContentLoaded", () => {
     const root = document.getElementById("root")
 
-    
+    let cUId
     let store
     if ( window.currentUser ){
+        cUId = window.currentUser.id
         const preloadedState = {
             entities: {
                 users: {
-                    [window.currentUser.id]: window.currentUser
+                    [cUId]: window.currentUser
                 }
             },
             session: { id: window.currentUser }
@@ -33,5 +34,5 @@ document.addEventListener("DOMContentLoaded", () => {
     window.checkEmail = checkEmail
     // end testing
     
-    ReactDOM.render(<Root store={ store } />, root);
+    ReactDOM.render(<Root store={ store } id={ cUId }/>, root);
 })

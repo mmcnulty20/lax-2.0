@@ -12,7 +12,7 @@ const Auth = ({ path, loggedIn, onLeave, exact, component: Component }) => (
         onLeave={ onLeave }
         exact={ exact }
         render={ props => (
-            loggedIn ? <Redirect to="/" /> : <Component { ...props } />
+            loggedIn ? <Redirect to="/welcome" /> : <Component { ...props } />
         ) }
     />
 )
@@ -23,7 +23,7 @@ const Protected = ({ path, loggedIn, onLeave, exact, component: Component }) => 
         onLeave={onLeave}
         exact={exact}
         render={props => (
-            loggedIn ? <Component {...props} /> : <Redirect to="/" />
+            loggedIn ? <Component {...props} /> : <Redirect to="/login" />
         )}
     />
 )

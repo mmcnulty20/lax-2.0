@@ -1,5 +1,5 @@
 import React from "react";
-import { useHistory } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 
 const SplashIntro = props => {
     const history = useHistory();
@@ -16,7 +16,7 @@ const SplashIntro = props => {
                     </button>
                 </Link>
                 <Link to="#"> 
-                    <button onClick={this.handleDemo}
+                    <button onClick={ console.log("demo") }
                         className="btn-white">
                         <span>SEE THE DEMO</span>
                     </button>
