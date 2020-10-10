@@ -1,12 +1,12 @@
 import React from "react";
 import { useDispatch } from "react-redux";
-import { logoutCurrentUser } from "../../actions/session_actions";
+import { logoutUser } from "../../actions/session_actions";
 
 const ChannelShow = () => {
     const dispatch = useDispatch();
     return (
     <div>Channel
-        <button onClick={ () => dispatch(logoutCurrentUser()) }>
+        <button onClick={ () => dispatch(logoutUser()) }>
             Logout
         </button>
     </div>

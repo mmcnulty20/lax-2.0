@@ -2,17 +2,18 @@
 #
 # Table name: users
 #
-#  id              :bigint           not null, primary key
-#  username        :string           not null
-#  email           :string           not null
-#  password_digest :string           not null
-#  session_token   :string           not null
-#  created_at      :datetime         not null
-#  updated_at      :datetime         not null
+#  id               :bigint           not null, primary key
+#  username         :string           not null
+#  email            :string           not null
+#  password_digest  :string           not null
+#  session_token    :string           not null
+#  created_at       :datetime         not null
+#  updated_at       :datetime         not null
+#  redirect_channel :integer          not null
 #
 class User < ApplicationRecord
 
-    before_validation :ensure_session_token
+    before_validation :ensure_session_token, :ensure_redirect_channel
 
     attr_reader :password
 
@@ -29,7 +30,7 @@ class User < ApplicationRecord
         too_long: "Your password can’t be more than 72 characters long."
     }
     validates :session_token, presence: true, uniqueness: true
-    validates :password_digest, presence: true
+    validates :password_digest, :redirect_channel, presence: true
     
     def self.find_by_credentials(credentials)
         user = self.find_by(email: credentials[:email])
@@ -58,5 +59,9 @@ class User < ApplicationRecord
     private
     def ensure_session_token
         self.session_token ||= self.class.generate_session_token
+    end
+
+    def ensure_redirect_channel
+        self.redirect_channel ||= 1 # change when channels created
     end
 end

@@ -8,23 +8,21 @@ import SignupStructure from "./session/signup_page_structure";
 import SplashMain from "./splash/splash_main";
 import ChannelShow from "./channel/channel_show";
 
-export default ({ id }) => {
-    return (
-        <>
-            <header>
-                <Switch>
-                    <Route path={ ["/welcome", "/login"] } component={NavBarAuthSplash} />
-                    <Route path="/signup" render={ ()=>null } />
-                </Switch>
-            </header>
+export default () => (
+    <>
+        <header>
             <Switch>
-                <AuthRoute path="/login" component={ LoginForm } />
-                <AuthRoute path="/signup" component={ SignupStructure } />
-                <Route path="/welcome" component={ SplashMain } />
-                <ProtectedRoute path="/c" component={ ChannelShow } />
-                <RootRoute path="/" />
+                <Route path={ ["/welcome", "/login"] } component={NavBarAuthSplash} />
+                <Route path="/signup" render={ ()=>null } />
             </Switch>
-        </>
-    )
-}
+        </header>
+        <Switch>
+            <AuthRoute path="/login" component={ LoginForm } />
+            <AuthRoute path="/signup" component={ SignupStructure } />
+            <Route path="/welcome" component={ SplashMain } />
+            <ProtectedRoute path="/c" component={ ChannelShow } />
+            <RootRoute path="/" />
+        </Switch>
+    </>
+)
 
