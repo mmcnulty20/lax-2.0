@@ -13,7 +13,7 @@ const defaultChecks = { 0: false, 1: false, 2: false }
 
 const SignupForm = ({ errors }) => {
     const dispatch = useDispatch();
-    useComponentWillUnmount(() => dispatch(purgeErrors));
+    useComponentWillUnmount(() => dispatch(purgeErrors()))
 
     const [user, setUser] = useState({ username: "", email: "", password: "" });
     const [checks, setChecks] = useState(defaultChecks);
