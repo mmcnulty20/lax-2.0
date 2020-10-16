@@ -1,4 +1,5 @@
-import { PURGE_ERRORS, RECEIVE_CURRENT_USER, RECEIVE_SESSION_ERRORS } from "../../actions/session_actions";
+import { RECEIVE_CURRENT_USER } from "../../actions/session_actions";
+import { PURGE_ERRORS, RECEIVE_SESSION_ERRORS } from "../../actions/ui_actions";
 
 const SessionErrorsReducer = (state = [], action) => {
     Object.freeze(state);

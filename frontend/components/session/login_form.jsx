@@ -3,7 +3,8 @@ import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 
-import { loginUser, purgeErrors } from "../../actions/session_actions";
+import { loginUser } from "../../actions/session_actions";
+import { purgeErrors } from "../../actions/ui_actions";
 import { useComponentWillUnmount } from "../../utils/hook_util";
 
 import LoginDemoButton from "../misc/login_demo_button";

@@ -2,7 +2,8 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 
-import { purgeErrors, signUpUser } from "../../actions/session_actions";
+import { signUpUser } from "../../actions/session_actions";
+import { purgeErrors } from "../../actions/ui_actions";
 import { checkEmail, handleFrontendErrors, validName } from "../../utils/auth_form_helper";
 import { useComponentWillUnmount } from "../../utils/hook_util";
 
