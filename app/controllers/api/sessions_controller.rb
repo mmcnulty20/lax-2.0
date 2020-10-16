@@ -1,9 +1,7 @@
 class Api::SessionsController < ApplicationController
     before_action :demo, only: [:create]
     def create
-        debugger
         @user = User.find_by_credentials(user_params)
-        debugger
         if @user
             login!(@user)
             render "api/users/user_stub"

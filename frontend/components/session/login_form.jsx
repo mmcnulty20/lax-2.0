@@ -3,8 +3,11 @@ import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 
-import { loginUser, loginDemo, purgeErrors } from "../../actions/session_actions";
+import { loginUser, purgeErrors } from "../../actions/session_actions";
 import { useComponentWillUnmount } from "../../utils/hook_util";
+
+import LoginDemoButton from "../misc/login_demo_button";
+import LoginFooter from "./login_footer";
 
 const LoginForm = props => {
     const dispatch = useDispatch();
@@ -60,18 +63,15 @@ const LoginForm = props => {
                             <button>Sign in</button>
                         </form>
                     </div>
-                    <button className="demo"
-                        onClick={ () => dispatch(loginDemo()) }>
+                    <LoginDemoButton className="demo">
                         Log in as a demo user
-                    </button>
+                    </LoginDemoButton>
                 </div>
                 <p>
                     If you don't have a Lax account, you can <Link to="/signup" >create an account</Link>.
                 </p>
             </div>
-            <div className="auth-footer-container">
-                Just footer things
-            </div>
+            <LoginFooter />
         </>
     )
 }

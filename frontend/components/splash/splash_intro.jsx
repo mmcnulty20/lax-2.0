@@ -1,12 +1,12 @@
 import React from "react";
 import { useDispatch } from "react-redux";
 import { Link, useHistory } from "react-router-dom";
-import { loginDemo } from "../../actions/session_actions";
+import LoginDemoButton from "../misc/login_demo_button";
 
 const SplashIntro = ({ channel }) => {
     const history = useHistory();
     const dispatch = useDispatch();
-    
+
     return (
         <div className="intro">
             <section>
@@ -18,15 +18,9 @@ const SplashIntro = ({ channel }) => {
                         <span>TRY LAX FOR FREE</span>
                     </button>
                 </Link>
-                <Link to="#"> 
-                    <button onClick={ () => {
-                        dispatch(loginDemo())
-                            .then(() => { history.push(`/c/${channel}`) });
-                        }}
-                        className="btn-white">
-                        <span>SEE THE DEMO</span>
-                    </button>
-                </Link>
+                <LoginDemoButton className="btn-white">
+                    <span>SEE THE DEMO</span>
+                </LoginDemoButton>
             </section>
         </div>
     )

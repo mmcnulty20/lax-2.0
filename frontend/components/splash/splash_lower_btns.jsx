@@ -2,9 +2,10 @@ import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useHistory } from "react-router-dom";
 import { loginDemo } from "../../actions/session_actions";
+import LoginDemoButton from "../misc/login_demo_button";
 
 const SplashLowerBtns = ({ channel }) => {
-    const loggedIn = useSelector(state => Boolean(state.session.id) )
+    const loggedIn = useSelector(state => Boolean(state.session.currentUserId) )
     const history = useHistory();
     const dispatch = useDispatch();
 
@@ -18,18 +19,10 @@ const SplashLowerBtns = ({ channel }) => {
                         TRY LAX 
                     </button>
                 </Link>
-                <button 
-                    onClick={ () => {
-                        if (!loggedIn) {
-                            dispatch(loginDemo())
-                                .then(() => { history.push(`/c/${channel}`) })
-                        } else {
-                            history.push("/")
-                        }
-                    } }
+                <LoginDemoButton
                     className="btn-transp">
-                    SEE THE DEMO
-                </button>
+                        SEE THE DEMO
+                </LoginDemoButton>
             </nav>
         </section>
     </section>

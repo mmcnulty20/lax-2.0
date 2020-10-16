@@ -6,6 +6,8 @@ import { purgeErrors, signUpUser } from "../../actions/session_actions";
 import { checkEmail, handleFrontendErrors, validName } from "../../utils/auth_form_helper";
 import { useComponentWillUnmount } from "../../utils/hook_util";
 
+import LoginDemoButton from "../misc/login_demo_button";
+
 const defaultChecks = { 0: false, 1: false, 2: false }
 
 const SignupForm = ({ errors }) => {
@@ -132,10 +134,9 @@ const SignupForm = ({ errors }) => {
                 </button>
 
             </form>
-            <button className="demo"
-                onClick={() => dispatch(loginDemo())}>
+            <LoginDemoButton className="demo">
                 Log in as a demo user
-            </button>
+            </LoginDemoButton>
         </div>
 
     )

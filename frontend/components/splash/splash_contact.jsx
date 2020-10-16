@@ -10,7 +10,7 @@ const SplashContact = () => (
                     <FontAwesomeIcon icon={["fab", "github"]} />
                 </button>
             </a>
-            <a href="#">
+            <a href="https://www.linkedin.com/in/megan-mcnulty-26a2641b1/">
                 <button>
                     <FontAwesomeIcon icon={["fab", "linkedin"]} />
                 </button>
