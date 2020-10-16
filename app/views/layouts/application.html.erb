@@ -15,6 +15,14 @@
   </head>
 
   <body>
+    <svg id="logo-bg" height="0" width="0" position="absolute">
+        <defs>
+            <pattern id="logo-colors" patternContentUnits="objectBoundingBox" width="1" height="1"
+                patternTransform="scale(-1.2,1.2) translate(66,-58)">
+                <image href="<%= image_url("patterns/logo") %>" x="0" y="0" width="1" height="1" />
+            </pattern>
+        </defs>
+    </svg>
     <%= yield %>
   </body>
 </html>

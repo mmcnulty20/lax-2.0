@@ -1,0 +1,13 @@
+header > div {
+    &.login, &.splash {
+        @include flex($justify: flex-start);
+        height: 4.3rem;
+    }
+}
+
+.header-nav {
+    @include flex($justify: space-between);
+    .nav-list {
+        @include flex($width: fit-content);
+    }
+}

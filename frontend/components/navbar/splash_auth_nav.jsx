@@ -1,8 +1,5 @@
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React from "react";
-import { useDispatch } from "react-redux";
 import { Route, Switch } from "react-router-dom";
-import { loginDemo } from "../../actions/session_actions";
 import { useLoggedIn } from "../../utils/hook_util";
 
 import { AuthRoute } from "../../utils/route_util"
@@ -11,10 +8,10 @@ import LoginNav from "./login_nav";
 import SplashAuthNav from "./splash_auth";
 import SplashProtectedNav from "./splash_protected";
 
-export default ({ location }) => {
+export default ({ location: { pathname } }) => {
     const loggedIn = useLoggedIn();
     return (
-        <div className={location === "/welcome" ? "splash" : "login"}>
+        <div className={pathname === "/welcome" ? "splash" : "login"}>
             <LogoButtonFigure />
             <nav className="header-nav">
                 <ul className="nav-list">

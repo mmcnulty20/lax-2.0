@@ -26,7 +26,7 @@
         height: 100%;
         @include flex();
         svg *{
-            fill: url(#logo-colors);
+            fill: url("#logo-colors")
         }
     }
 }

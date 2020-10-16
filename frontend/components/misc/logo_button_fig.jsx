@@ -11,7 +11,7 @@ const LogoButtonFigure = () => (
                 flip="horizontal" />
             <span>
                 lax
-                    </span>
+            </span>
         </Link>
     </figure>
 )

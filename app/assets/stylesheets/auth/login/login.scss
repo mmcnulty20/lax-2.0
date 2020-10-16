@@ -1,0 +1,30 @@
+$login-breakpoint: 700px;
+$timing: 0.5s;
+
+header > div.login {
+    position: fixed;
+    background-color: $sand;
+    top: 0;
+    transition: top $timing ease-in;
+    nav {
+        justify-content: flex-end;
+    }
+}
+
+.auth-page.login {
+    padding-top: 4.3rem;
+    background-color: $dark-sand;
+    border-bottom: 1px solid $tan-border;
+}
+
+@media only screen and ( max-width: $login-breakpoint ) {
+    @import "./small_screens.scss";
+}
+
+@media only screen and ( min-width: $login-breakpoint ) {
+    @import "./desktop.scss";
+}
+
+// body {
+//     // background-image: image_url("patterns/logo");
+// }
