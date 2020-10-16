@@ -7,7 +7,6 @@ import library from "./icons/library";
 document.addEventListener("DOMContentLoaded", () => {
     const root = document.getElementById("root")
 
-    // let cUId
     let store
     if ( window.currentUser ){
         const cUId = window.currentUser.id
@@ -17,7 +16,7 @@ document.addEventListener("DOMContentLoaded", () => {
                     [cUId]: window.currentUser
                 }
             },
-            session: { id: cUId }
+            session: { currentUserId: cUId }
         }
         delete window.currentUser
         store = configureStore(preloadedState);

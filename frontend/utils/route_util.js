@@ -2,9 +2,9 @@ import React from "react";
 import { connect } from "react-redux";
 import { Redirect, Route, withRouter } from "react-router-dom";
 
-const mapStateToProps = ({ entities: { users: { redirectChannel } }, session: { id } }) => (
+const mapStateToProps = ({ entities: { users: { redirectChannel } }, session: { currentUserId } }) => (
     {
-        loggedIn: Boolean(id),
+        loggedIn: Boolean(currentUserId),
         channel: redirectChannel || 1
     }
 )
@@ -31,12 +31,12 @@ const Protected = ({ path, loggedIn, onLeave, exact, component: Component }) => 
     />
 )
 
-const Root = ({ path, loggedIn, channel, onLeave, exact, component: Component }) => (
+const Root = ({ path, loggedIn, channel, onLeave, exact }) => (
     <Route
         path={path}
         onLeave={onLeave}
         exact={exact}
-        render={props => (
+        render={ () => (
             loggedIn ? <Redirect to={`/c/${channel}`} /> : <Redirect to="/welcome" />
         )}
     />
