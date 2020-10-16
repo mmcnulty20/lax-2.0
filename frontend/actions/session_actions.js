@@ -1,14 +1,10 @@
 import * as sessionAPIUtil from "../utils/session_api_util";
+import { receiveSessionErrors } from "./ui_actions";
 
 // Action types - Auth
 export const RECEIVE_CURRENT_USER = "RECEIVE_CURRENT_USER";
 export const LOGOUT_CURRENT_USER = "LOGOUT_CURRENT_USER";
 // export const RECEIVE_EMAIL_PRESENCE = "RECEIVE_EMAIL_PRESENCE";
-
-// Action types - Errors
-export const RECEIVE_SESSION_ERRORS = "RECEIVE_SESSION_ERRORS";
-export const PURGE_ERRORS = "PURGE_ERRORS"
-
 
 // Action creators - Auth
 export const receiveCurrentUser = user => ({
@@ -25,16 +21,6 @@ export const logoutCurrentUser = () => ({
     //     type: RECEIVE_EMAIL_PRESENCE,
     //     bool
 // })    
-
-// Action creators - Errors
-export const receiveSessionErrors = errors => ({
-    type: RECEIVE_SESSION_ERRORS,
-    errors
-})
-
-export const purgeErrors = () => ({
-    type: PURGE_ERRORS
-})
 
 // Thunk action creators
 export const signUpUser = user => {
@@ -68,11 +54,5 @@ export const logoutUser = () => {
 }
 
 export const loginDemo = () => {
-    return dispatch => (
-        sessionAPIUtil.login({ email: "demouser" })
-            .then(
-                res => dispatch(receiveCurrentUser(res)),
-                ({ responseJSON: errors }) => dispatch(receiveSessionErrors(errors))
-            )
-    )
+    return loginUser({ email: "demouser" })
 }
