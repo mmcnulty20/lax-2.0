@@ -6,7 +6,7 @@ import LogoButtonFigure from '../../misc/logo_button_fig';
 const HamburgerMenu = ({ loggedIn, close }) => {
     const [closing, setClosing] = useState(false)
     useEffect( () => {
-        if (closing) setTimeout( () => close(), 1000 )
+        if (closing) setTimeout( () => close(), 500 )
     }, [closing] )
 
     return (

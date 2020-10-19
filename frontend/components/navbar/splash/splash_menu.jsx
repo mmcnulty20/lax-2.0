@@ -8,9 +8,6 @@ import SplashProtectedNav from "./splash_protected";
 
 const SplashBar = () => {
     const loggedIn = useLoggedIn();
-    console.log(loggedIn)
-    const state = useSelector(state => state)
-    console.log(state)
     return (
         <>
             <SplashHamburger loggedIn={ loggedIn }/>
