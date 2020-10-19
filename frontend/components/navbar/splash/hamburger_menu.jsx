@@ -6,34 +6,40 @@ const HamburgerMenu = ({ loggedIn, close }) => (
     <div className="ham-menu">
         <div>
             <LogoButtonFigure />
-            <button onClick={ close }>X</button>
+            <figure className="x" onClick={ close }>X</figure>
         </div>
         <ul>
             <li>
-                Same
+                <a href="https://github.com/mmcnulty20/">
+                    GitHub
+                </a>
             </li>
             <li>
-                Nav
+                <a href="https://www.linkedin.com/in/megan-mcnulty-26a2641b1/">
+                    LinkedIn
+                </a>
             </li>
             <li>
-                Links
-            </li>
-            <li>
-                { loggedIn ? (
-                    <>
-                    <button>Launch</button>
-                    <button>Github?</button>
-                    </>
-                ) : (
-                <>
-                    <button>Sign in</button>
-                    <LoginDemoButton className="ham-demo">
-                        TRY THE DEMO
-                    </LoginDemoButton>
-                </>
-                )}
+                <a href="mailto:megan.mcnulty07@gmail.com">
+                    Email me
+                </a>
             </li>
         </ul>
+        <nav>
+        { loggedIn ? (
+            <>
+            <button>Launch</button>
+            <button>Github?</button>
+            </>
+        ) : (
+            <>
+            <button className="btn-white">Sign in</button>
+            <LoginDemoButton className="btn-blue">
+                TRY THE DEMO
+            </LoginDemoButton>
+            </>
+        )}
+        </nav>
     </div>
 )
 
