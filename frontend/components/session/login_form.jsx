@@ -64,7 +64,7 @@ const LoginForm = props => {
                             <button>Sign in</button>
                         </form>
                     </div>
-                    <LoginDemoButton className="demo" auth >
+                    <LoginDemoButton className="demo" >
                         Log in as a demo user
                     </LoginDemoButton>
                 </div>

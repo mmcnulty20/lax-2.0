@@ -1,15 +1,9 @@
 import React from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { Link, useHistory } from "react-router-dom";
-import { loginDemo } from "../../actions/session_actions";
+import { Link } from "react-router-dom";
+
 import LoginDemoButton from "../misc/login_demo_button";
 
-const SplashLowerBtns = ({ channel }) => {
-    const loggedIn = useSelector(state => Boolean(state.session.currentUserId) )
-    const history = useHistory();
-    const dispatch = useDispatch();
-
-    return (
+const SplashLowerBtns = () => (
     <section className="splash-btns-container">
         <section>
             <h1>Choose the better way to play</h1>
@@ -26,6 +20,6 @@ const SplashLowerBtns = ({ channel }) => {
             </nav>
         </section>
     </section>
-)}
+)
 
 export default SplashLowerBtns

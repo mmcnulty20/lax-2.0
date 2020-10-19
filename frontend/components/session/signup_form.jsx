@@ -135,7 +135,7 @@ const SignupForm = ({ errors }) => {
                 </button>
 
             </form>
-            <LoginDemoButton className="demo" auth >
+            <LoginDemoButton className="demo" >
                 Log in as a demo user
             </LoginDemoButton>
         </div>

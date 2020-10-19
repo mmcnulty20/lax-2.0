@@ -1,6 +1,6 @@
 import React from "react";
 import { useDispatch } from "react-redux";
-import { logoutUser } from "../../actions/session_actions";
+import { logoutUser } from "../../../actions/session_actions";
 
 export default () => {
     const dispatch = useDispatch()
