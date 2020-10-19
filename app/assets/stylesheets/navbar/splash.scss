@@ -4,6 +4,7 @@ header > div {
     &.login, &.splash {
         @include flex($justify: flex-start);
         height: 4.3rem;
+        padding: 0 2rem;
     }
 }
 

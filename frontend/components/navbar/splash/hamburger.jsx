@@ -8,7 +8,7 @@ const SplashHamburger = ({ loggedIn }) => {
         <figure className="hamburger" onClick={ () => setClosed(false) }>
             <FontAwesomeIcon icon="bars" />
             { closed ? null : 
-                <HamburgerMenu loggedIn={ loggedIn } close={e => { e.stopPropagation(); setClosed(true) } }/> }
+                <HamburgerMenu loggedIn={ loggedIn } close={() => setClosed(true) }/> }
         </figure>
     )
 }

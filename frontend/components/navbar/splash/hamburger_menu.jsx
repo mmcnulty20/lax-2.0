@@ -1,12 +1,21 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
+import { promiseDelay } from '../../../utils/hook_util';
 import LoginDemoButton from '../../misc/login_demo_button';
 import LogoButtonFigure from '../../misc/logo_button_fig';
 
-const HamburgerMenu = ({ loggedIn, close }) => (
-    <div className="ham-menu">
+const HamburgerMenu = ({ loggedIn, close }) => {
+    const [closing, setClosing] = useState(false)
+    useEffect( () => {
+        if (closing) setTimeout( () => close(), 1000 )
+    }, [closing] )
+
+    return (
+    <div className={`ham-menu${ closing ? " out" : ""}`}>
         <div>
             <LogoButtonFigure />
-            <figure className="x" onClick={ close }>X</figure>
+            <figure className="x" onClick={ () => setClosing(true) }>
+                X
+            </figure>
         </div>
         <ul>
             <li>
@@ -42,5 +51,6 @@ const HamburgerMenu = ({ loggedIn, close }) => (
         </nav>
     </div>
 )
+}
 
 export default HamburgerMenu;
