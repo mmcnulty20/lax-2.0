@@ -7,10 +7,26 @@ header > div {
     }
 }
 
-.header-nav {
-    @include flex($justify: space-between);
+.splash {
+    .header-nav {
+        @include flex($justify: space-between);
+        button {
+            padding: 0.7rem 1rem;
+        }
+    }
 }
 
+.btn-blue {
+    @include button($font: $sand, $background: $dark-blue);
+}
+
+.btn-white {
+    @include button($font: $dark-blue, $background: $sand, $hover: "shadow");
+}
+
+.btn-transp {
+    @include button($font: $sand, $background: transparent, $outline: $sand, $hover: "shadow")
+}
 
 @media only screen and ( max-width: $splash-hamburger-breakpoint ) {
     @import "./small_screens.scss";

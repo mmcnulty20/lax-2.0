@@ -1,4 +1,4 @@
-.header-nav {
+.splash .header-nav {
     justify-content: flex-end;
     .hamburger {
         display: block;
@@ -8,5 +8,66 @@
     }
     .nav-btns {
         display: none;
+    }
+}
+
+.ham-menu {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: $sand;
+    z-index: 10;
+    padding: 0 1rem 1rem;
+    @include grid($rows: 70px 1fr auto, $num-cols: 1);
+    > div {
+        height: 4.375rem;
+        padding: 1.5rem 2rem 1rem 0;
+        @include flex($justify: space-between);
+        .x {
+            font-size: 1.25rem;
+            transform: scale(1.75, 1.13);
+            font-weight: 300;
+            padding: 2px;
+            &:hover {
+                cursor: pointer;
+            }
+        }
+    }
+    > ul {
+        font-size: 1.1rem;
+        letter-spacing: 0.2px;
+        height: 100%;
+        padding: 0.5rem 0 0;
+        li {
+            padding: 0.75rem 0;
+            a {
+                display: block;
+                width: 50%;
+            }
+        }
+    }
+    > nav {
+        // position: absolute;
+        // width: 100%;
+        // bottom: 0;
+        // left: 0;
+        padding: 0 -0.5rem;
+        @include grid($num-rows: 1, $col-gap: 1.5rem, $columns: repeat(auto-fit, minmax(20.3rem, 1fr)));
+        button {
+            height: 3.75rem;
+        }
+    }
+}
+
+@media only screen and ( max-width: 720px ) {
+    .ham-menu {
+        > nav {
+            padding: 0 0.5rem 1rem;
+        }
+        ul li {
+            padding: 1rem 0;
+        }
     }
 }

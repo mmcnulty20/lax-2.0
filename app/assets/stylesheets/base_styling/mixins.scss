@@ -6,7 +6,33 @@
     width: $width;
 }
 
-@mixin button ($font, $background, $hover, $outline: $dark-blue) {
+@mixin grid( $num-cols: 2, $num-rows: 2, $columns: repeat($num-cols, 1fr), $rows: repeat($num-rows, 1fr), $row-gap: null, $col-gap: null, $gap: null, $no-gap: false ) {
+    $base-gap: 1rem;
+    display: grid;
+    grid: $rows / $columns;
+    @if $gap { // If providing value for $gap
+        gap: $gap;
+    } @else if not ($no-gap) { // If we haven't specifically told it there IS no grid-gap
+        gap: $base-gap; // Set both to be the base gap
+        @if $row-gap { // And overwrite individually if either individual attribute
+            row-gap: $row-gap;
+        }
+        @if $col-gap {
+            column-gap: $col-gap;
+        }
+    }
+}
+
+// Utilizes box-shadow to provide a bold effect when hovering an item
+@mixin bold-shadow-hover ($color: $dark-blue, $timing: 0.3s) {
+    transition: box-shadow $timing; 
+    &:hover {
+        box-shadow: inset 0 0 0 1px rgba($color: $color, $alpha: 1.0);
+    }
+}
+
+// Always provide a font and background color
+@mixin button ($font, $background, $hover: $hover-blue-btn, $outline: $dark-blue, $timing: null) {
     border: 1px solid $outline;
     background: $background;
     color: $font;
@@ -16,7 +42,16 @@
     text-align: center;
     &:hover {
         cursor: pointer;
-        background-color: $hover;
+    }
+    @if $hover == "shadow" { //If hover is provided a string "shadow", will bold via shadow on hover
+        @if not ($timing) { $timing: 0.3s } // Set default timing for this transition
+        @include bold-shadow-hover($color: $font, $timing: $timing);
+    } @else { // Otherwise BG will change on hover
+        @if not ($timing) { $timing: 0.1s } // Set default timing for this transition
+        transition: background-color $timing;  
+        &:hover {
+            background-color: $hover; // To $hover color
+        }
     }
 }
 
