@@ -1,0 +1,12 @@
+.header-nav {
+    justify-content: flex-end;
+    .hamburger {
+        display: block;
+    }
+    .nav-list {
+        display: none;
+    }
+    .nav-btns {
+        display: none;
+    }
+}

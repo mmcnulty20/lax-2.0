@@ -1,0 +1,11 @@
+.header-nav {
+    .hamburger {
+        display: none;
+    }
+    .nav-list {
+        @include flex($width: fit-content);
+    }
+    .nav-btns {
+        display: block;
+    }
+}

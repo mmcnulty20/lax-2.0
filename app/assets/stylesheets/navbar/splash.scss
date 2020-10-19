@@ -1,3 +1,5 @@
+$splash-hamburger-breakpoint: 1085px;
+
 header > div {
     &.login, &.splash {
         @include flex($justify: flex-start);
@@ -7,7 +9,13 @@ header > div {
 
 .header-nav {
     @include flex($justify: space-between);
-    .nav-list {
-        @include flex($width: fit-content);
-    }
+}
+
+
+@media only screen and ( max-width: $splash-hamburger-breakpoint ) {
+    @import "./small_screens.scss";
+}
+
+@media only screen and ( min-width: $splash-hamburger-breakpoint ) {
+    @import "./desktop.scss";
 }
