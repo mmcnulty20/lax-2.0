@@ -1,7 +1,10 @@
+$splash-breakpoint: 400px;
+
 .splash {
     button {
         font-size: .875rem;
         padding: 1.25rem 2.5rem;
+        width: 100%;
     }
 }
 
@@ -10,6 +13,6 @@
     background: $dark-blue;
 }
 
-main > .splash {
-    padding-top: 7rem;
+@media only screen and ( max-width: $splash-breakpoint ) {
+    @import "./small_screens.scss";
 }

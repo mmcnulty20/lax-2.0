@@ -6,14 +6,10 @@ const SplashContact = () => (
         <h1>Find Me On</h1>
         <nav>
             <a href="https://github.com/mmcnulty20/">
-                <button>
-                    <FontAwesomeIcon icon={["fab", "github"]} />
-                </button>
+                <FontAwesomeIcon icon={["fab", "github"]} />
             </a>
             <a href="https://www.linkedin.com/in/megan-mcnulty-26a2641b1/">
-                <button>
-                    <FontAwesomeIcon icon={["fab", "linkedin"]} />
-                </button>
+                <FontAwesomeIcon icon={["fab", "linkedin"]} />
             </a>
         </nav>
     </section>

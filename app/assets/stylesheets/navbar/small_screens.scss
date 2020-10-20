@@ -98,3 +98,9 @@ $slide-timing: 0.3s;
         }
     }
 }
+
+@media only screen and (max-width: 390px) {
+    .ham-menu > nav {
+        grid-template-columns: unset;
+    }
+}
