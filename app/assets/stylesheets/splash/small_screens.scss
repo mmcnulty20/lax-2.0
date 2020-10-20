@@ -18,14 +18,13 @@ main > .splash {
                 margin-bottom: 0.5rem;
             }
             h1 {
-                font-weight: 600;
-                font-size: 1.875rem;
-                line-height: 2.1rem;
+                line-height: 2.25rem;
                 margin-bottom: 1rem;
             }
             p:not(:first-child) {
                 line-height: 1.25rem;
                 margin-bottom: 2rem;
+                max-width: 27rem;
             }
             .btn-white {
                 margin: 1rem 0 2rem;
@@ -63,6 +62,8 @@ main > .splash {
         padding-top: 2.5rem;
         padding-bottom: 1.5rem;
         nav {
+            max-width: 20rem;
+            margin: 0 auto;
             padding: 1rem 0;
             @include flex($justify: space-around);
             color: $dark-blue;
@@ -84,9 +85,13 @@ main > .splash {
         }
     }
     footer {
-        #logo-button a {
-            display: block;
-            font-size: 3.5rem;
+        #logo-button {
+            padding: 1rem 0;
+            a {
+                display: block;
+                width: fit-content;
+                font-size: 3.5rem;
+            }
         }
         nav {
             &:hover {
