@@ -95,6 +95,7 @@ main > .splash {
             font-size: 0.875rem;
             @include grid();
             li {
+                color: $lighter-text;
                 padding: 0.5rem 0;
                 &:first-child {
                     font-weight: 600;
