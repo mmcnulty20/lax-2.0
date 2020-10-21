@@ -13,6 +13,8 @@ $splash-breakpoint: 766px;
     background: $dark-blue;
 }
 
-@media only screen and ( max-width: $splash-breakpoint ) {
+@import "./desktop.scss";
+
+// @media only screen and ( max-width: $splash-breakpoint ) {
     @import "./small_screens.scss";
-}
+// }

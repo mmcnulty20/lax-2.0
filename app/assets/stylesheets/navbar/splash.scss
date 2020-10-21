@@ -1,12 +1,13 @@
 $splash-hamburger-breakpoint: 1085px;
 $splash-nav-height: 4.3rem;
 
-header > div {
+header {
     position: fixed;
     background: $sand;
     border-bottom: 1px solid $splash-borders;
     z-index: 1;
-    &.login, &.splash {
+    width: 100%;
+    .login, .splash {
         @include flex($justify: flex-start);
         height: $splash-nav-height;
         padding: 0 2rem;
@@ -15,7 +16,7 @@ header > div {
 
 .splash {
     .header-nav {
-        @include flex($justify: space-between);
+        @include flex($justify: flex-end);
         button {
             padding: 0.7rem 1rem;
         }

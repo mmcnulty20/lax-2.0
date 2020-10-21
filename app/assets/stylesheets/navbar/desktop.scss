@@ -1,4 +1,11 @@
-.header-nav {
+header > div.splash {
+    padding: 1rem;
+    margin: 0 auto;
+    max-width: 76.875rem;
+}
+
+.splash .header-nav {
+    justify-content: space-between;
     .hamburger {
         display: none;
     }
@@ -6,6 +13,6 @@
         @include flex($width: fit-content);
     }
     .nav-btns {
-        display: block;
+        @include flex($width: fit-content)
     }
 }

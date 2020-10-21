@@ -22,8 +22,7 @@
 
 $slide-timing: 0.3s;
 
-.splash .header-nav {
-    justify-content: flex-end;
+header > div .header-nav {
     .hamburger {
         display: block;
         .fa-bars {
