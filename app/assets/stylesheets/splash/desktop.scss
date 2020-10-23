@@ -1,0 +1,122 @@
+main > .splash {
+    h1 {
+        font-size: 2.4rem;
+    }
+    .intro {
+        padding-top: 8rem;
+        padding-bottom: 4rem;
+        @include grid($num-rows: 1, $columns: 50% 45%, $gap: 5%);
+        align-items: center;
+        h1 {
+            font-size: 2.4rem;
+            line-height: 2.75rem;
+        }
+        > section > p:last-of-type {
+            font-size: 1.2rem;
+            line-height: 1.5rem;
+        }
+        .btn-white {
+            margin-top: 0.5rem
+        }
+    }
+    .splash-breakdown {
+        padding-top: 5rem;
+        padding-bottom: 5rem;
+        ul {
+            padding-top: 3rem;
+            @include grid($num-cols: 3, $num-rows: 1, $gap: 2rem);
+            li {
+                padding: 0.5rem;
+                margin-bottom: 5px;
+            }
+        }
+    }
+    .splash-contact {
+        padding-top: 5rem;
+        padding-bottom: 5rem;
+        h1 {
+            text-align: center;
+            margin-bottom: 1.5rem;
+        }
+        nav {
+            font-size: 9.5rem;
+        }
+    }
+    footer nav {
+        @include grid($num-cols: 4, $num-rows: 1, )
+    }
+}
+
+@media only screen and (max-width: 1023px) {
+    .splash-breakdown {
+        h1 {
+            margin-bottom: 1rem;
+        }
+        > section > p {
+            margin-bottom: 2.5rem;
+        }
+    }
+        .splash-btns-container {
+        > section {
+            padding: 0 4vw;
+            h1 {
+                letter-spacing: -1.75px;
+            }
+            .btn-white {
+                margin-bottom: 1rem;
+            }
+        }
+    }
+}
+
+@media only screen and (min-width: 1025px) {
+    .splash-breakdown > section {
+        @include grid($rows: 42% 53%, $columns: 57.5% 37.5%, $gap: 1rem 5%);
+        grid-template-areas: " channel-img break-away "
+                             " channel-img sub-text ";
+        h1 {
+            grid-area: break-away;
+            margin-bottom: unset;
+            font-size: 3.125rem;
+            line-height: 4rem;
+            align-self: end;
+        }
+        figure {
+            grid-area: channel-img;
+        }
+        p {
+            grid-area: sub-text;
+            margin-bottom: unset;
+        }
+    }
+    .splash-btns-container > section {
+        padding-left: 2.625rem;
+        padding-right: 2.625rem;
+        h1 {
+            font-size: 3.125rem;
+        }
+        nav {
+            @include flex();
+            button {
+                width: unset;
+                padding: 1.15rem 2.5rem;
+            }
+            .btn-white {
+                margin-right: 0.5rem;
+            }
+        }
+    }
+    .splash > footer {
+        padding-top: 5rem;
+        padding-bottom: 5rem;
+        > section {
+            @include flex($justify: space-between, $align: flex-start);
+            #logo-button {
+                padding-top: 0;
+            }
+            > nav {
+                width: 65%;
+            }
+        }
+    }
+}

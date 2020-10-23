@@ -1,22 +1,11 @@
 main > .splash {
     h1 {
-        font-weight: 600;
         font-size: 2rem;
     }
-    > * {
-        padding: 0 4vw;
-    }
     .intro {
-        background: $dark-sand;
         padding-top: 7rem;
         padding-bottom: 3rem;
         section {
-            p:first-child {
-                font-size: 0.875rem;
-                letter-spacing: 0.5px;
-                font-weight: 600;
-                margin-bottom: 0.5rem;
-            }
             h1 {
                 line-height: 2.25rem;
                 margin-bottom: 1rem;
@@ -34,10 +23,9 @@ main > .splash {
     .splash-breakdown {
         padding-top: 3rem;
         padding-bottom: 3rem;
-        border-bottom: 1px solid $dark-sand;
         h1 {
             line-height: 2.25rem;
-            margin: 0 5px 1rem 0;
+            margin-right: 5px;
         }
         p {
             margin-bottom: 1rem;

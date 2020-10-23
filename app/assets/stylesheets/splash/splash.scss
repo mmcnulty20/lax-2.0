@@ -3,7 +3,7 @@ $splash-breakpoint: 766px;
 .splash {
     button {
         font-size: .875rem;
-        padding: 1.25rem 2.5rem;
+        padding: 1.15rem 1.5rem;
         width: 100%;
     }
 }
@@ -13,8 +13,104 @@ $splash-breakpoint: 766px;
     background: $dark-blue;
 }
 
-@import "./desktop.scss";
+main > .splash {
+    h1 {
+        font-weight: 600;
+    }
+    > * {
+        padding: 0 4vw;
+    }
+    .intro {
+        background: $dark-sand;
+        section {
+            p:first-child {
+                font-size: 0.875rem;
+                letter-spacing: 0.5px;
+                font-weight: 600;
+                margin-bottom: 0.5rem;
+            }
+            h1 {
+                margin-bottom: 0.5rem;
+            }
+            p:not(:first-child) {
+                margin-bottom: 2rem;
+                max-width: 27rem;
+            }
+        }
+    }
+    .splash-breakdown {
+        border-bottom: 1px solid $dark-sand;
+        .channels-img {
+            background: $splash-borders;
+            width: 100%;
+            padding-top: 66.66%;
+        }
+        ul {
+            svg {
+                font-size: 2.5rem;
+                &.fa-comments {
+                    font-size: 2.75rem;
+                }
+            }
+            h3 {
+                margin: 1rem 0;
+                font-weight: 600;
+            }
+        }
+    }
+    .splash-contact {
+        padding-top: 2.5rem;
+        padding-bottom: 1.5rem;
+        nav {
+            margin: 0 auto;
+            padding: 1rem 0;
+            @include flex($justify: space-around);
+            color: $dark-blue;
+        }
+    }
+    .splash-btns-container {
+        height: 23.5rem;
+        @include flex($dir: column);
+        h1 {
+            letter-spacing: -0.2px;
+            line-height: 2.2rem;
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+    }
+    footer {
+        #logo-button {
+            padding: 1rem 0;
+            a {
+                display: block;
+                width: fit-content;
+                font-size: 3.5rem;
+            }
+        }
+        nav {
+            &:hover {
+                cursor: default;
+            }
+            font-size: 0.875rem;
+            @include grid();
+            li {
+                color: $lighter-text;
+                padding: 0.5rem 0;
+                &:first-child {
+                    font-weight: 600;
+                }
+                a:hover {
+                    color: $link-hover-blue;
+                }
+            }
+        }
+    }
+}
 
-// @media only screen and ( max-width: $splash-breakpoint ) {
+@media only screen and (min-width: $splash-breakpoint) {
+    @import "./desktop.scss";
+}
+
+@media only screen and ( max-width: $splash-breakpoint ) {
     @import "./small_screens.scss";
-// }
+}

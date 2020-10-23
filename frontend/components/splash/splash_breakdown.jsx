@@ -6,6 +6,8 @@ const SplashBreakdown = () => (
         <section>
             <h1>Break away from work</h1>
             <p>Communicate seamlessly with groups of friends through channels with specific purposes.</p>
+            <figure className="channels-img"></figure>
+        </section>
             <ul>
                 <li>
                     <FontAwesomeIcon icon="comments" />
@@ -23,7 +25,6 @@ const SplashBreakdown = () => (
                     <p>Email and text chains can get out of hand. With Lax, you can choose which conversations can be put off, leaving more time for relaxing.</p>
                 </li>
             </ul>
-        </section>
     </section>
 )
 
