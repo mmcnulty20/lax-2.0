@@ -22,21 +22,26 @@
 
 $slide-timing: 0.3s;
 
-header > div .header-nav {
-    .hamburger {
-        display: block;
-        .fa-bars {
-            font-size: 2rem;
-            &:hover {
-                cursor: pointer;
+header > div {
+    &.login, .splash {
+        padding: 0 2rem;
+    }
+    .header-nav {
+        .hamburger {
+            display: block;
+            .fa-bars {
+                font-size: 2rem;
+                &:hover {
+                    cursor: pointer;
+                }
             }
         }
-    }
-    .nav-list {
-        display: none;
-    }
-    .nav-btns {
-        display: none;
+        .nav-list {
+            display: none;
+        }
+        .nav-btns {
+            display: none;
+        }
     }
 }
 

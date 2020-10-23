@@ -6,7 +6,7 @@ const SplashBreakdown = () => (
         <section>
             <h1>Break away from work</h1>
             <p>Communicate seamlessly with groups of friends through channels with specific purposes.</p>
-            <figure className="channels-img"></figure>
+            <figure className="channels-img" >[Gif here when channels complete]</figure>
         </section>
             <ul>
                 <li>

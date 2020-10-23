@@ -1,7 +1,22 @@
 header > div.splash {
-    padding: 1rem;
     margin: 0 auto;
-    max-width: 76.875rem;
+    #logo-button {
+        padding-right: 2.5rem;
+    }
+}
+@media only screen and (max-width: 1357px) {
+    header > div.splash {
+        padding: 0 calc(4vw - 1rem) 0 4vw;
+        .nav-btns.logged-out{
+            padding: 1rem;
+        } 
+    }
+}
+@media only screen and (min-width: 1358px) {
+    header .splash {
+        max-width: 76.875rem;
+        padding: unset;
+    }
 }
 
 .splash .header-nav {
@@ -11,8 +26,16 @@ header > div.splash {
     }
     .nav-list {
         @include flex($width: fit-content);
+        > li {
+            padding: 1rem;
+        }
     }
     .nav-btns {
-        @include flex($width: fit-content)
+        @include flex($width: fit-content);
+        &.logged-out {
+            > a:first-child {
+                margin-right: 1rem;
+            }
+        }
     }
 }

@@ -2,7 +2,7 @@ main > .splash {
     h1 {
         font-size: 2.4rem;
     }
-    .intro {
+    .intro-content {
         padding-top: 8rem;
         padding-bottom: 4rem;
         @include grid($num-rows: 1, $columns: 50% 45%, $gap: 5%);
@@ -40,10 +40,12 @@ main > .splash {
         }
         nav {
             font-size: 9.5rem;
+            max-width: 57.675rem;
         }
     }
     footer nav {
-        @include grid($num-cols: 4, $num-rows: 1, )
+        @include grid($num-cols: 4, $num-rows: 1);
+        max-width: 50.5rem;
     }
 }
 
@@ -56,7 +58,7 @@ main > .splash {
             margin-bottom: 2.5rem;
         }
     }
-        .splash-btns-container {
+    .splash-btns-container {
         > section {
             padding: 0 4vw;
             h1 {
@@ -89,6 +91,9 @@ main > .splash {
             margin-bottom: unset;
         }
     }
+    .splash > .splash-contact > h1 {
+        font-size: 3.125rem;
+    }
     .splash-btns-container > section {
         padding-left: 2.625rem;
         padding-right: 2.625rem;
@@ -117,6 +122,46 @@ main > .splash {
             > nav {
                 width: 65%;
             }
+        }
+    }
+}
+
+@media only screen and (min-width: 1172px) {
+    .splash .intro {
+        nav {
+            display: flex;
+            button {
+                width: unset;
+                &.btn-white {
+                    margin-top: unset;
+                    margin-left: 0.5rem;
+                }
+            }
+        }
+    }
+}
+
+@media only screen and (min-width: 1280px) {
+    .splash .intro .intro-content {
+        grid-template-columns: 35% 60%;
+    }
+}
+
+@media only screen and (min-width: 1358px) {
+    main > .splash {
+        .splash-contact {
+            padding: 7rem 0;
+        }
+        > *:not(.intro):not(.splash-btns-container), .intro-content {
+            max-width: 76.875rem;
+            margin: 0 auto;
+        }
+        .splash-breakdown, footer {
+            padding-left: unset;
+            padding-right: unset;
+        }
+        .intro {
+            width: 100%;
         }
     }
 }
