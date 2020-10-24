@@ -7,10 +7,9 @@ header {
     border-bottom: 1px solid $splash-borders;
     z-index: 1;
     width: 100%;
-    .login, .splash {
+    .splash {
         @include flex($justify: flex-start);
         height: $splash-nav-height;
-        padding: 0 2rem;
     }
 }
 
